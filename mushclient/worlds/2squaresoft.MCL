@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Wednesday, March 25, 2020, 6:08 PM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+<world
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+
+   auto_say_override_prefix="-"
+   auto_say_string="say "
+   chat_name="Name-not-set"
+   command_stack_character=";"
+   id="38248c7e53d78fac3fe48c2d"
+   input_font_name="Fixedsys"
+   mapping_failure="Alas, you cannot go that way."
+   name="SquareSoft"
+   new_activity_sound="(No sound)"
+   output_font_name="FixedSys"
+   proxy_server="uossmud.sanwich.net"
+   script_editor="notepad"
+   script_editor_argument="%file"
+   script_filename="D:\Downloads\SquareSoft\worlds\uosssound.lua"
+   script_language="Lua"
+   script_prefix="$"
+   site="uossmud.sandwich.net"
+   spam_message="look"
+   speed_walk_prefix="#"
+   terminal_identification="mushclient"
+
+   arrows_change_history="y"
+   arrow_recalls_partial="y"
+   auto_pause="y"
+   auto_resize_minimum_lines="1"
+   auto_resize_maximum_lines="20"
+   chat_foreground_colour="red"
+   chat_background_colour="black"
+   chat_port="4050"
+   confirm_on_paste="y"
+   confirm_on_send="y"
+   convert_ga_to_newline="y"
+   default_trigger_sequence="100"
+   default_alias_sequence="100"
+   detect_pueblo="y"
+   echo_colour="10"
+   echo_hyperlink_in_output_window="y"
+   edit_script_with_notepad="y"
+   enable_aliases="y"
+   enable_beeps="y"
+   enable_command_stack="y"
+   enable_scripts="y"
+   enable_speed_walk="y"
+   enable_timers="y"
+   enable_triggers="y"
+   enable_trigger_sounds="y"
+   history_lines="1000"
+   hyperlink_adds_to_command_history="y"
+   hyperlink_colour="#0080FF"
+   indent_paras="y"
+   input_background_colour="white"
+   input_font_height="9"
+   input_font_weight="400"
+   input_text_colour="black"
+   keypad_enable="y"
+   log_input="y"
+   log_output="y"
+   max_output_lines="5000"
+   mud_can_change_link_colour="y"
+   mud_can_change_options="y"
+   note_text_colour="#040000"
+   output_font_height="9"
+   output_font_weight="400"
+   paste_delay_per_lines="1"
+   pixel_offset="1"
+   port="9000"
+   proxy_port="9000"
+   save_world_automatically="y"
+   script_errors_to_output_window="y"
+   send_file_delay_per_lines="1"
+   send_mxp_afk_response="y"
+   show_connect_disconnect="y"
+   show_italic="y"
+   show_underline="y"
+   spam_line_count="20"
+   tab_completion_lines="200"
+   timestamp_input_text_colour="maroon"
+   timestamp_notes_text_colour="blue"
+   timestamp_output_text_colour="white"
+   timestamp_input_back_colour="black"
+   timestamp_notes_back_colour="black"
+   timestamp_output_back_colour="black"
+   tool_tip_visible_time="5000"
+   tool_tip_start_time="400"
+   treeview_timers="y"
+   underline_hyperlinks="y"
+   unpause_on_send="y"
+   use_custom_link_colour="y"
+   use_default_input_font="y"
+   use_default_output_font="y"
+   warn_if_scripting_inactive="y"
+   wrap="y"
+   wrap_column="80"
+   write_world_name_to_log="y"
+   > <!-- end of general world attributes -->
+
+</world>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+  <trigger
+   enabled="y"
+   match="Hello, Player!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("setup")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^&lt;Clan&gt; &lt;\w+&gt;.+$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("channels/clantell.ogg")
+Execute("history_add All=%0")
+Execute("history_add Clan=%0")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^&gt; $"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^You have left The UnOfficial SquareSoft MUD\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>stopsound()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="^\[(\w+)\] .+$"
+   regexp="y"
+   send_to="12"
+   sequence="101"
+  >
+  <send>channelsound("%1")
+ExecuteNoStack("history_add channels=%0")
+ExecuteNoStack("history_add All=%0")</send>
+  </trigger>
+</triggers>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+  <alias
+   match="!setup"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PPI = require("ppi")
+ppi = PPI.Load("aedf0cb0be5bf045860d54b7")
+
+soundvolume=30
+musicvolume=30
+volid=1
+priorarea="none"
+currentarea="none"
+rooms={}
+dir=world.GetInfo(67)
+cl={}
+
+function getconfig(cn)
+for c=1,#cl do
+if cl[c].name==cn then
+return cl[c].value
+end
+end
+print("error: Unable to locate "..cn.." in config list.")
+end
+
+
+
+if tonumber(areamusic)~=nil then
+ppi.stop(areamusic)
+
+end
+areamusic=0
+
+cl={
+{name="areamusic",value="on",desc="Toggles area music.",values={"on","off"}}
+}
+cl[2]={name="areanotify",desc="Enables or disables notifications for area changes.",value="on",values={"on","off"}}
+
+
+
+
+function saverooms()
+roomfile=io.open(dir.."/data/rooms.txt","w+b")
+
+for r=1,#rooms do
+roomstr=""
+roomstr=rooms[r].name.."\\r\\n"..rooms[r].exits.."\\r\\n"..rooms[r].area.."\\r\\n"
+
+roomfile:write(roomstr)
+end
+roomfile:close()
+print("rooms saved")
+end
+
+
+function split(str, delimitor)
+substrings = {}
+temp = ""
+for c in str:gmatch(".") do
+if c == delimitor then
+table.insert(substrings, temp)
+temp = ""
+else
+temp = temp..c
+end
+end
+if #temp then
+table.insert(substrings, temp)
+end
+return substrings
+end
+
+function stringToTable(str)
+return split(str:gsub("%s+", ""), ",")
+end
+
+function tableContains(t, a)
+for i=1, #t do
+if t[i] == a then
+return true
+end
+end
+return false
+end
+
+function compareTables(a, b)
+if not (#a == #b) then
+return false
+end
+for i=1, #a do
+if not tableContains(b, a[i]) then
+return false
+end
+end
+return true
+end
+
+function match_room(name, exits, index)
+if name==rooms[index].name and compareTables(stringToTable(exits), stringToTable(rooms[index].exits)) then
+return true
+end
+return false
+end
+
+
+function loadrooms()
+temp=1
+tempt={}
+for line in io.lines(dir.."/data/rooms.txt") do
+
+tempt[#tempt+1]=line
+temp=temp+1
+if temp&gt;3 then
+rooms[#rooms+1]={name=tempt[1],exits=tempt[2],area=tempt[3]}
+temp=1
+tempt={}
+end
+end
+end
+
+
+
+
+function playsound(snd)
+return ppi.play(dir.."/sounds/"..snd,0,0,soundvolume)
+
+end
+
+function playloop(snd)
+return ppi.play(dir.."sounds/"..snd,1,0,musicvolume)
+
+end
+
+function stopsound(snd)
+if tonumber(snd)~=nil then
+ppi.stop(snd)
+end
+end
+
+
+function setarea(areaname)
+if priorarea==areaname then
+return
+else
+areamusic=stopsound(areamusic)
+if getconfig("areamusic")=="on" then
+areamusic=playloop(areaname..".ogg")
+end
+
+currentarea=areaname
+if getconfig("areanotify")=="on" then
+print("Entering "..currentarea..".")
+end
+end
+end
+
+
+function vt()
+if volid==1 then
+print("Changing area music volume, current value "..musicvolume..".")
+volid=2
+else
+print("Changing global sound volume, current value "..soundvolume..".")
+volid=1
+end
+end
+
+function setvol(id)
+if id==1 then
+if volid==1 then
+if soundvolume+5&gt;100 then
+print("error: Volume can not exceed 100.")
+return
+end
+soundvolume=soundvolume+5
+playsound("appears locked.ogg")
+end
+if volid==2 then
+if musicvolume+5&gt;100 then
+print("error: volume can not exceed 100.")
+return
+end
+musicvolume=musicvolume+5
+ppi.play(dir.."sounds/appears locked.ogg",0,0,musicvolume)
+
+end
+end
+if id==2 then
+if volid==1 then
+if soundvolume-5&lt;0 then
+print("error: muted.")
+return
+end
+soundvolume=soundvolume-5
+playsound("appears locked.ogg")
+end
+if volid==2 then
+if musicvolume-5&lt;0 then
+print("error: muted.")
+return
+end
+musicvolume=musicvolume-5
+ppi.play(dir.."sounds/appears locked.ogg",0,0,musicvolume)
+end
+end
+
+end
+
+
+
+Accelerator("f10","vt")
+Accelerator("f11","volup")
+Accelerator("f12","voldown")
+
+function saveconfig()
+cfile=io.open(dir.."data/config.txt","w+b")
+for c=1,#cl do
+cfile:write(cl[c].value)
+if c&lt;#cl then
+cfile:write("\\r\\n")
+end
+end
+cfile:close()
+
+cfile=io.open(dir.."data/vol.txt","w+b")
+cfile:write(soundvolume.."\\r\\n"..musicvolume)
+cfile:close()
+end
+
+function loadconfig()
+c=1
+for line in io.lines(dir.."data/config.txt") do
+cl[c].value=line
+c=c+1
+end
+
+
+a=1
+
+for line in io.lines(dir.."data/vol.txt") do
+if a==1 then
+soundvolume=tonumber(line)
+end
+if a==2 then
+musicvolume=tonumber(line)
+end
+a=a+1
+end
+end
+
+loadrooms()
+loadconfig()
+
+print("Setup successfull.")
+
+function ExecuteNoStack(cmd)
+local s = GetOption("enable_command_stack")
+SetOption("enable_command_stack", 0)
+Execute(cmd)
+SetOption("enable_command_stack", s)
+end
+</send>
+  </alias>
+  <alias
+   match="^ct (.+)$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>clan tell %1</send>
+  </alias>
+  <alias
+   match="^pt (.+)$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>partytell %1</send>
+  </alias>
+  <alias
+   match="addroom"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("addroom "..currentarea)</send>
+  </alias>
+  <alias
+   match="addroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+print("This room is already in the list of rooms. If you are attempting to change it's area use changeroom.")
+return
+end
+end
+
+if "%1"=="" then
+print("Area name must contain a value")
+else
+rooms[#rooms+1]={name=room_name,exits=room_exits,area="%1"}
+print(rooms[#rooms].name.." added to rooms list, with area "..rooms[#rooms].area..".")
+currentarea=rooms[#rooms].area
+
+saverooms()
+setarea(currentarea)
+end
+</send>
+  </alias>
+  <alias
+   match="changeroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+if "%1"=="" then
+print("Area must contain a string value.")
+else
+rooms[r].area="%1"
+print(rooms[r].name.."'s area changed to "..rooms[r].area..".")
+saverooms()
+return
+end
+end
+end</send>
+  </alias>
+  <alias
+   match="config"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>print("config:")
+for c=1,#cl do
+print(cl[c].name.." "..cl[c].value..": "..cl[c].desc)
+end
+</send>
+  </alias>
+  <alias
+   match="config * *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>cname="%1"
+cvalue="%2"
+gv=0
+for c=1,#cl do
+if cl[c].name==cname then
+if cl[c].value==cvalue then
+print(cl[c].name.." is already set to "..cl[c].value..".")
+return
+end
+for v=1,#cl[c].values do
+if cl[c].values[v]==cvalue then
+print(cl[c].name.." set to "..cvalue..".")
+cl[c].value=cvalue
+gv=1
+end
+end
+if gv==0 then
+print("no values for "..cl[c].name.." matching "..cvalue..".")
+end
+end
+end
+
+if getconfig("areamusic")=="off" then
+ppi.stop(areamusic)
+end
+
+saveconfig()</send>
+  </alias>
+  <alias
+   match="loadrooms"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>loadrooms()</send>
+  </alias>
+  <alias
+   match="mr *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for i=1,tonumber("%1") do
+rooms[#rooms+1]={name="fjowe",exits="moo",area="fjiweriowhe"}
+end</send>
+  </alias>
+  <alias
+   match="removeroom"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if rooms[r].name==room_name and rooms[r].exits==room_exits then
+print(room_name.." removed from rooms list.")
+
+table.remove(rooms,r)
+
+return
+end
+end
+print("This room is not in the list of rooms.")
+</send>
+  </alias>
+  <alias
+   match="removeroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+print(room_name.." removed from rooms list.")
+table.remove(rooms,r)
+
+return
+end
+end
+print("This room is not in the list of rooms.")</send>
+  </alias>
+  <alias
+   match="saverooms"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>saverooms()</send>
+  </alias>
+  <alias
+   match="savesettings"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>saverooms()
+saveconfig()</send>
+  </alias>
+  <alias
+   match="voldown"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setvol(2)
+if areamusic~=0 then
+ppi.setVol(musicvolume,areamusic)
+end
+saveconfig()</send>
+  </alias>
+  <alias
+   match="volup"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setvol(1)
+if ppi.isPlaying(areamusic) then
+ppi.setVol(musicvolume,areamusic)
+end
+saveconfig()</send>
+  </alias>
+  <alias
+   match="vt"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>vt()</send>
+  </alias>
+</aliases>
+
+<!-- timers -->
+
+<timers
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+</timers>
+
+<!-- macros -->
+
+<macros
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+
+  <macro name="up" type="send_now" >
+  <send>up</send>
+
+  </macro>
+
+  <macro name="down" type="send_now" >
+  <send>down</send>
+
+  </macro>
+
+  <macro name="north" type="send_now" >
+  <send>north</send>
+
+  </macro>
+
+  <macro name="south" type="send_now" >
+  <send>south</send>
+
+  </macro>
+
+  <macro name="east" type="send_now" >
+  <send>east</send>
+
+  </macro>
+
+  <macro name="west" type="send_now" >
+  <send>west</send>
+
+  </macro>
+
+  <macro name="examine" type="replace" >
+  <send>examine </send>
+
+  </macro>
+
+  <macro name="look" type="replace" >
+  <send>look </send>
+
+  </macro>
+
+  <macro name="page" type="replace" >
+  <send>page </send>
+
+  </macro>
+
+  <macro name="say" type="replace" >
+  <send>say </send>
+
+  </macro>
+
+  <macro name="whisper" type="replace" >
+  <send>whisper </send>
+
+  </macro>
+
+  <macro name="doing" type="send_now" >
+  <send>DOING</send>
+
+  </macro>
+
+  <macro name="who" type="send_now" >
+  <send>WHO</send>
+
+  </macro>
+
+  <macro name="drop" type="replace" >
+  <send>drop </send>
+
+  </macro>
+
+  <macro name="take" type="replace" >
+  <send>take </send>
+
+  </macro>
+
+  <macro name="F2" type="send_now" >
+  <send>flee</send>
+
+  </macro>
+
+  <macro name="logout" type="send_now" >
+  <send>LOGOUT</send>
+
+  </macro>
+
+  <macro name="quit" type="send_now" >
+  <send>QUIT</send>
+
+  </macro>
+</macros>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+  <variable name="PPIparams_1">n:1|n:1|n:2|s:D:\\Downloads\\SquareSoft\\worlds\\/sounds/channels/announce.ogg|n:3|n:0|n:4|n:0|n:5|n:30</variable>
+</variables>
+
+<!-- colours -->
+
+<colours
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+
+<ansi>
+
+ <normal>
+   <colour seq="1" rgb="black" />
+   <colour seq="2" rgb="maroon" />
+   <colour seq="3" rgb="green" />
+   <colour seq="4" rgb="olive" />
+   <colour seq="5" rgb="navy" />
+   <colour seq="6" rgb="purple" />
+   <colour seq="7" rgb="teal" />
+   <colour seq="8" rgb="silver" />
+
+ </normal>
+
+ <bold>
+   <colour seq="1" rgb="gray" />
+   <colour seq="2" rgb="red" />
+   <colour seq="3" rgb="lime" />
+   <colour seq="4" rgb="yellow" />
+   <colour seq="5" rgb="blue" />
+   <colour seq="6" rgb="magenta" />
+   <colour seq="7" rgb="cyan" />
+   <colour seq="8" rgb="white" />
+
+ </bold>
+
+</ansi>
+
+<custom>
+  <colour seq="1" name="Custom1" text="#FF8080" back="black" />
+  <colour seq="2" name="Custom2" text="#FFFF80" back="black" />
+  <colour seq="3" name="Custom3" text="#80FF80" back="black" />
+  <colour seq="4" name="Custom4" text="#80FFFF" back="black" />
+  <colour seq="5" name="Custom5" text="#0080FF" back="black" />
+  <colour seq="6" name="Custom6" text="#FF80C0" back="black" />
+  <colour seq="7" name="Custom7" text="red" back="black" />
+  <colour seq="8" name="Custom8" text="#0080C0" back="black" />
+  <colour seq="9" name="Custom9" text="magenta" back="black" />
+  <colour seq="10" name="Custom10" text="#804040" back="black" />
+  <colour seq="11" name="Custom11" text="#FF8040" back="black" />
+  <colour seq="12" name="Custom12" text="teal" back="black" />
+  <colour seq="13" name="Custom13" text="#004080" back="black" />
+  <colour seq="14" name="Custom14" text="#FF0080" back="black" />
+  <colour seq="15" name="Custom15" text="green" back="black" />
+  <colour seq="16" name="Custom16" text="blue" back="black" />
+
+</custom>
+</colours>
+
+<!-- keypad -->
+
+<keypad
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+
+  <key name="0" >
+  <send>look</send>
+  </key>
+
+  <key name="1" >
+  <send>sw</send>
+  </key>
+
+  <key name="2" >
+  <send>south</send>
+  </key>
+
+  <key name="3" >
+  <send>se</send>
+  </key>
+
+  <key name="4" >
+  <send>west</send>
+  </key>
+
+  <key name="5" >
+  <send>WHO</send>
+  </key>
+
+  <key name="6" >
+  <send>east</send>
+  </key>
+
+  <key name="7" >
+  <send>nw</send>
+  </key>
+
+  <key name="8" >
+  <send>north</send>
+  </key>
+
+  <key name="9" >
+  <send>ne</send>
+  </key>
+
+  <key name="." >
+  <send>hide</send>
+  </key>
+
+  <key name="/" >
+  <send>inventory</send>
+  </key>
+
+  <key name="*" >
+  <send>score</send>
+  </key>
+
+  <key name="-" >
+  <send>up</send>
+  </key>
+
+  <key name="+" >
+  <send>down</send>
+  </key>
+
+  <key name="Ctrl+0" >
+  </key>
+
+  <key name="Ctrl+1" >
+  </key>
+
+  <key name="Ctrl+2" >
+  </key>
+
+  <key name="Ctrl+3" >
+  </key>
+
+  <key name="Ctrl+4" >
+  </key>
+
+  <key name="Ctrl+5" >
+  </key>
+
+  <key name="Ctrl+6" >
+  </key>
+
+  <key name="Ctrl+7" >
+  </key>
+
+  <key name="Ctrl+8" >
+  </key>
+
+  <key name="Ctrl+9" >
+  </key>
+
+  <key name="Ctrl+." >
+  </key>
+
+  <key name="Ctrl+/" >
+  </key>
+
+  <key name="Ctrl+*" >
+  </key>
+
+  <key name="Ctrl+-" >
+  </key>
+
+  <key name="Ctrl++" >
+  </key>
+</keypad>
+
+<!-- printing -->
+
+<printing
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-03-25 18:08:23"
+  >
+
+<ansi>
+
+ <normal>
+
+ </normal>
+
+ <bold>
+   <style seq="1" bold="y" />
+   <style seq="2" bold="y" />
+   <style seq="3" bold="y" />
+   <style seq="4" bold="y" />
+   <style seq="5" bold="y" />
+   <style seq="6" bold="y" />
+   <style seq="7" bold="y" />
+   <style seq="8" bold="y" />
+
+ </bold>
+
+</ansi>
+</printing>
+
+<!-- plugins -->
+<include name="CaptureMudOutput.xml" plugin="y" />
+<include name="Current_Output_Window.xml" plugin="y" />
+<include name="msp.xml" plugin="y" />
+<include name="LuaAudio.xml" plugin="y" />
+<include name="output_functions.xml" plugin="y" />
+<include name="MushReader.xml" plugin="y" />
+<include name="auto_retyping.xml" plugin="y" />
+<include name="Omit_Blank_Lines.xml" plugin="y" />
+<include name="channel_history.xml" plugin="y" />
+<include name="direction_plugin.xml" plugin="y" />
+</muclient>

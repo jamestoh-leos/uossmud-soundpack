@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Sunday, October 18, 2020, 11:09 AM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "PromptHelper". World: "squaresoft". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+</variables>
+</muclient>

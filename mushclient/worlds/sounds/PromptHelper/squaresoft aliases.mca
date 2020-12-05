@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Saturday, May 18, 2019, 12:31 AM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2019-05-18 00:31:07"
+  >
+  <alias
+   match="!arris"
+   enabled="y"
+   sequence="100"
+  >
+  <send>n
+n
+ct
+nw
+nw
+nw
+w
+pillar
+out
+ne
+n
+lab16
+e
+n
+w
+n
+e
+se
+n
+n
+nw
+s
+w
+n
+e
+e
+e
+s
+e
+n
+out
+e
+s
+e
+arris
+</send>
+  </alias>
+  <alias
+   match="!lab16"
+   enabled="y"
+   sequence="100"
+  >
+  <send>n
+n
+ct
+nw
+nw
+nw
+w
+pillar
+out
+ne
+n
+lab16
+</send>
+  </alias>
+  <alias
+   match="blizzard*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use blackmagic blizzard at %1</send>
+  </alias>
+  <alias
+   match="comet*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use timemagic comet at %1</send>
+  </alias>
+  <alias
+   match="cure*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use whitemagic cure at %1</send>
+  </alias>
+  <alias
+   match="draw*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use blackmagic draw at%1</send>
+  </alias>
+  <alias
+   match="fire*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use blackmagic fire at %1</send>
+  </alias>
+  <alias
+   match="home"
+   enabled="y"
+   sequence="100"
+  >
+  <send>teleport</send>
+  </alias>
+  <alias
+   match="p1"
+   enabled="y"
+   sequence="100"
+  >
+  <send>paradigm 1</send>
+  </alias>
+  <alias
+   match="p2"
+   enabled="y"
+   sequence="100"
+  >
+  <send>paradigm 2</send>
+  </alias>
+  <alias
+   match="p3"
+   enabled="y"
+   sequence="100"
+  >
+  <send>paradigm 3</send>
+  </alias>
+  <alias
+   match="paral*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use yinyangmagic paralyze at %1</send>
+  </alias>
+  <alias
+   match="protect*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use whitemagic protect at %1</send>
+  </alias>
+  <alias
+   match="r1*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use redmagic chainfire at %1</send>
+  </alias>
+  <alias
+   match="r2*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use redmagic chainice at %1</send>
+  </alias>
+  <alias
+   match="r3*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use redmagic chainbolt at %1</send>
+  </alias>
+  <alias
+   match="shell*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use whitemagic shell at %1</send>
+  </alias>
+  <alias
+   match="thunder*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use blackmagic thunder at %1</send>
+  </alias>
+  <alias
+   match="tincture*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use item tincture at %1</send>
+  </alias>
+  <alias
+   match="tonic*"
+   enabled="y"
+   sequence="100"
+  >
+  <send>use item tonic at %1</send>
+  </alias>
+</aliases>
+</muclient>

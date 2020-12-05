@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Saturday, October 17, 2020, 6:28 PM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "Current_Output_Window". World: "SquareSoft". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-17 18:28:04"
+  >
+  <variable name="mw_391192793248409895090099_windowflags">0</variable>
+  <variable name="mw_391192793248409895090099_windowmode">6</variable>
+  <variable name="mw_391192793248409895090099_windowx">0</variable>
+  <variable name="mw_391192793248409895090099_windowy">0</variable>
+</variables>
+</muclient>

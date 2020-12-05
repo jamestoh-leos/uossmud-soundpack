@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Friday, April 22, 2016, 7:30 AM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- macros -->
+
+<macros
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2016-04-22 07:30:49"
+  >
+
+  <macro name="up" type="send_now" >
+  <send>up</send>
+
+  </macro>
+
+  <macro name="down" type="send_now" >
+  <send>down</send>
+
+  </macro>
+
+  <macro name="north" type="send_now" >
+  <send>north</send>
+
+  </macro>
+
+  <macro name="south" type="send_now" >
+  <send>south</send>
+
+  </macro>
+
+  <macro name="east" type="send_now" >
+  <send>east</send>
+
+  </macro>
+
+  <macro name="west" type="send_now" >
+  <send>west</send>
+
+  </macro>
+
+  <macro name="examine" type="replace" >
+  <send>examine </send>
+
+  </macro>
+
+  <macro name="look" type="replace" >
+  <send>look </send>
+
+  </macro>
+
+  <macro name="page" type="replace" >
+  <send>page </send>
+
+  </macro>
+
+  <macro name="say" type="replace" >
+  <send>say </send>
+
+  </macro>
+
+  <macro name="whisper" type="replace" >
+  <send>whisper </send>
+
+  </macro>
+
+  <macro name="doing" type="send_now" >
+  <send>DOING</send>
+
+  </macro>
+
+  <macro name="who" type="send_now" >
+  <send>WHO</send>
+
+  </macro>
+
+  <macro name="drop" type="replace" >
+  <send>drop </send>
+
+  </macro>
+
+  <macro name="take" type="replace" >
+  <send>take </send>
+
+  </macro>
+
+  <macro name="F2" type="send_now" >
+  <send>flee</send>
+
+  </macro>
+
+  <macro name="logout" type="send_now" >
+  <send>LOGOUT</send>
+
+  </macro>
+
+  <macro name="quit" type="send_now" >
+  <send>QUIT</send>
+
+  </macro>
+</macros>
+</muclient>

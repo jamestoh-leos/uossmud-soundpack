@@ -1,0 +1,2238 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Wednesday, April 20, 2016, 4:56 PM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2016-04-20 16:56:36"
+  >
+  <trigger
+   enabled="y"
+   match="    |   |          T H E    U N - O F F I C I A L                     "
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("setup")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="'You stab * with a mystical strike!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>minus strike.ogg</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* Save Point *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("savepnt.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* The barrier of blue energy around you fades away."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shell down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* The barrier of red energy around you fades away."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("protect down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="* You have died *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("killed.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* You stop healing at an increased rate."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bless off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="* [Uno Shout] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("unoshout.ogg") Execute("history_add UnoShout=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* [exits: *]"
+   send_to="12"
+   sequence="100"
+  >
+  <send>room_name="%1"
+room_exits="%2"
+priorarea=currentarea
+
+for r=1,#rooms do
+if rooms[r].name==room_name and rooms[r].exits==room_exits then
+setarea(rooms[r].area)
+end
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* administers a Phoenix Down to you, bringing you to life!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("phoenix down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="* administers a Phoenix Down to you, bringing you to life!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("phoenix down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* an incantation, and gesturing towards * holy *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("heal other.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* at * curing * severe wounds!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("heal self.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Socials"
+   match="* cough*."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("cough.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* crawl* up into * lap and purrs like a cat."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("purr.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* do* the technicolor yawn."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("puke.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="* enters shell*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shell up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="* enters the MUD."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("enter.ogg") Execute("history_add Announce=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* flee* madly."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Skitter.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="* gives you *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("they give.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* gives you * coins."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("they give gold.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="* has achieved level *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("achieve.ogg") Execute("history_add Announce=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* has gone link-dead."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("leave linkdead.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* has killed *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("random death.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="* has left the MUD."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("leave.ogg") Execute("history_add Announce=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* is DEAD!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("death1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is a bit hurt, but nothing serious."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("scratches.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is a bit roughed up."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("scratches.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is about to die."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("awful.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is badly wounded."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("big nasty.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="* is bound by shadows!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bind.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is in very bad shape."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("pretty hurt.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is lightly wounded."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("small wounds.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="* is no longer bound by shadows."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bindfree.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="condition"
+   match="* is wounded."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("quite a few.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="event"
+   match="* killed the *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("event.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* laughs."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("laugh.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="* leaves shell*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shell down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* multi-colored barrier leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("WallDown.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* nudges you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("nudge.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* poisons you!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("poison.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* purr*."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("purr.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* roll* on the floor laughing."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("rofl.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* says, *"
+   send_to="12"
+   sequence="100"
+   sound="C:\Uossmud soundpack\say.wav"
+  >
+  <send>playsound("say.ogg") Execute("history_add Say=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="* screams and attacks *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("encounter.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* screams and attacks you!"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* shout*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shout.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* snicker*."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("snicker.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* starts to follow you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("they follow you.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="* suddenly appears in the room."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("someone recalls.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* suddenly appears in the room."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="priest"
+   match="* summons a pair of angelic wings, which lift you up and restore you to life!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Life.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* summons angels, who raise you back to life and restore you!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Life.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* tells you: *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("tell.ogg") Execute("history_add tells=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* throw* head back and cackle* with glee!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("cackle.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="* utter* a powerful incantation, curing * critical wounds!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("curaja.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* vomit* all over the floor, leaving a splattered mess of green goo."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("puke.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="* wanders off and digs at the ground, retrieving *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("FoundItem.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="* whispers to you: *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("whisper.ogg") Execute("history_add Say=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="* yells*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("yell.ogg") Execute("history_add yell=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="*(*-*%) [h]:"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  <send>
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="*(Link Tell) *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("friend.ogg") Execute("history_add LinkTell=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*----*----------------------*----------*--------------*-----*-----*-----*-----*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*-------------------*------------------------------*-------------------------*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*---------------------------*-----*------------*---------*------*------*------*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*---------------------------------*----------------*-------------------------*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*===========*=========================================*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*A ray of light comes down from the heavens*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("restored.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*A warm light pulses around you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("esuna.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*CONGRATULATION!  A WINNER IS YOU!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Fanfare_01.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Congratulations!  You have achieved level *!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("level up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Finding a suitable place, you pitch a tent and fall asleep."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Rest_Theme.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   ignore_case="y"
+   match="*Press enter to continue*"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  <send>
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*Saved."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("save.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*The aura tethering your soul to your body fades away."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("autolife down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*The barrier of anti-fire energy leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fireshield off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*The barrier of anti-ice energy leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("iceshield off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*The barrier of anti-lightning energy leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ground off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*The barrier of anti-water energy leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("water off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*The multi-colored barrier leaves you."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("WallDown.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="priest"
+   match="*The swirling barrier of red, blue, and healing energy around you fades away."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("aegisdown.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*With a command, you beckon your animal companions to sortie!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("command.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You administer a Tincture to *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("tincture.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are losing HP at a horrible rate!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("leak.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are no longer feeling refreshed."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("refreshoff.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are now * level *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("job level.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="engineer"
+   match="*You are now a Engineer!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("mechanic.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="thief"
+   match="*You are now a Thief!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("thief.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*You are protected by the barrier."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("WallUp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*You are protected from fire attacks."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fireshield on.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*You are regenerating!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("regen.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are shielded!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("golem up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are shrunk!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("imp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are surrounded by a reflective barrier!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("reflect up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You are turned into an imp!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("imp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="*You attack * time and hit for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("you hit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="*You attack * times and hit for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("you hit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You attack * with * Shot for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("arrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You attack * with Charge Attack for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("arrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You begin charging for Charge Attack!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ReloadMaximum.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*You bless your allies with holy regeneration!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bless.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You buy * for * gold coins."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("buy sell something.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*You calm down."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("berserkoff.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You charge fiercely at * releasing a flurry of * attacks!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("swish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You concentrate and recite an incantation..."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("balls of ashura.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You concentrate your power through your weapon and level it at your foes. *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("sonic boom.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You don't have enough MP to use *"
+   omit_from_log="y"
+   omit_from_output="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("error.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You double over in pain as the poison wracks your body!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("double over poison.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="engineer"
+   match="*You fire your Bio Blaster, filling the room with poison gas!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bio.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You form a barrier of blue energy around yourself."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shell up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You form a barrier of red energy around yourself."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("protect up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="*You form a multi-colored barrier around the room."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("aegisup.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="priest"
+   match="*You form a swirling barrier of red, blue, and healing energy around yourself."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("aegisup.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You gesture at yourself and you are bathed in a warm light."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("esuna.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You gesture at yourself and you are surrounded by a warm aura, making you feel refreshed."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("refreshon.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="*You gesture, and a whirlwind of fire sweeps in!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("inferno.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You have gained * fur points!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fur.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You have left *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("leave game.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You have left The UnOfficial SquareSoft MUD."
+   send_to="12"
+   sequence="100"
+  >
+  <send>stopsound("c:/uossmud soundpack/"..currentarea..".ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*You have new mail*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("newemail.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You heal yourself with * restoring * HP."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("healhp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You heal yourself with * restoring * MP."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("healmp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You laugh."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("laugh.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*You pray to the gods for teleportation!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("recall scroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You receive * fame."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fame.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You release a *-round charged attack towards *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("cfire.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You return to your normal size."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("grow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You sell * for * gold pieces."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("buy sell something.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You shoot a barrage of ammunition at your enemies!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("cfire.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You sigh."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("sigh.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You spin around in a circle, hitting all of your enemies!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("swish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You summon a shower of angelic magic to temporarily tether the souls of your allies to their bodies!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Life.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You swing your sword wildly in a circle!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Wild Swing.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="*You toss a smoke bomb onto the floor. *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("smokebomb.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You wear *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("you wear.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You wield *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("wield.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*You're paralyzed and can't act right now."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("collision.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Your animals return, their task complete."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("F5FightTing.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="archer"
+   match="*Your nightingale friends chirp an invigorating song, healing your party!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("animals-nightengale.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Your rock shield shatters."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("golem down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Your shimmering barrier dissipates."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("reflect down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*Your soul is tethered to your body!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("autolife up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[M] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("mission start.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[PartyTell] * has been added to the party."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("new partymember.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[PartyTell] * has left the party."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("leave party.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[PartyTell] &lt;*&gt;*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("tells the group.ogg") Execute("history_add PartyTell=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="channel"
+   match="*[announce] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("announce.ogg") Execute("history_add Announce=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[death] &lt;*&gt;  *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("aid.ogg") Execute("history_add Death=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[gossip] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("gossip.ogg")  Execute("history_add Gossip=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*[newbie] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("newbie.ogg") Execute("history_add newbie=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="*[news] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("news.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*attacks you *time* and hits *damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("they hit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*form a multi-colored barrier around your body."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("WallUp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*poke* in the tummy, like the Pillsbury Dough Boy!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("poke.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="*~Fin*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("finish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="--*--(*%) [?]: "
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  <send>
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="-----------------------------|========================------------------------"
+   omit_from_log="y"
+   omit_from_output="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="engineer"
+   match="-======================================-"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("scan.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="&gt; * killed the *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("event.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="&gt; CONGRATULATIONS! YOU HAVE COMPLETED ROUND * OF THE BATTLE ARENA!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("win arena.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="&gt; The * runs away!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("runs away.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="&gt; You reappear out of thin air*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("invis off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="&gt; You slow back down."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("haste off.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="auction"
+   match="&gt; [PlayerAuction] * has made a bid of * gold."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bid.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="auction"
+   match="&gt; [PlayerAuction] * is auctioning a * Starting bid is *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("AuctionStarts.ogg") Execute("history_add Auction=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="auction"
+   match="&gt; [PlayerAuction] Sold to * for * gold!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("item sold.ogg") Execute("history_add Auction=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="A * has been sighted in *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("sighted.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="A majestic elevator of clouds arrives on the floor, and you step in, *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("float up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="A majestic elevator of clouds delivers * to * destination."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("float down.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="After defeating you, * leaves the arena."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="As you step out of the Enertron, you feel relaxed and restored... *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("allfull.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="But you have none to throw!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("error.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="event"
+   match="Congratulations! You have won *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("win arena.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="It doesn't appear possible to go that way."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Collision.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="The doors of the arena open, and your opponents enter."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("cheer.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="With a mystic gesture, You summon a massive blast of flame, rocking the area*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fire4")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="With a roar, Flammie soars high *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("dragon.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You administer a Potion to yourself*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("potion.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You administer a Tonic to yourself*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound  ("tonic.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You administer an Ether to yourself*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ether.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You administer an antidote to yourself*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("antidote.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You administor an * to yourself"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("antidote.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="You are a ghost!  You have 2 minutes before you decompose."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("mort.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You are magically recalled!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("recall scroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You are protected from ice attacks."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("iceshield on.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You are protected from lightning attacks."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ground on.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You are protected from water attacks."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("water on.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Barrage for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("arrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Fire Scroll for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("firescroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Flame for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("flame.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Fuma Shuriken for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fumahit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Hunting for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("hunt.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Kunai for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("kunaihit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Lightning Scroll for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("lightningscroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Pinwheel for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("pinwheelhit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Pummel for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fist.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Shadow Fuma Shuriken for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shadowfumahit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Shadow Kunai for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shadowkunaihit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Shadow Pinwheel for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shadowpinwheelhit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Shadow Shuriken for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shadowshurikenhit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Shuriken for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shurikenhit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Sonic Boom for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("arrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Spin Fist for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("crush.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="archer"
+   match="You attack * with Triple Foul for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("hunt.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You attack * with Water Scroll for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("waterscroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You attack * with Wild Swing for * damage."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("slash.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You bless * with healing energies!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bless.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You block * attack!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("weapon guard.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You deposit * coins."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("deposit.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="You discover *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("discover.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You don't have any * left."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("error.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You easily dodge *'s attack!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("dodged blow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="You enter The UnOfficial SquareSoft MUD."
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("setup")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You form a barrier of * around the room."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("aegisup.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="You found a *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("FoundItem.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You gesture and a humanoid shadow zooms towards * attempting to bind it."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("swish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You gesture and a shimmering field forms around yourself."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("reflect up.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cleric"
+   match="You gesture and send a warm breeze throughout the room."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("healingwind.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You gesture at * causing divine energy *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("holy.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You gesture, and * convulses as thousands of volts of electricity pour*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bolt3.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You gesture, and a blinding arc of electricity flows from your hands into*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bolt2.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You gesture, and a massive bolt of lightning slams into the ground causing a*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bolt4.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="You give *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("you give.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="You go berserk!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("berserkon.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You grip a warp stone and disappear!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("recall scroll.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="misc"
+   match="You have learned *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("learned.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="You have received * quest point*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Received Item.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You hurl small bolts of lightning at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("bolt1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="archer"
+   match="You launch a projectile right at * face!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("guns.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You make a magical gesture toward yourself, and your movements begin to blur!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("haste on.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You mutter a complicated incantation, and direct it towards * The spell sets off a nuclear holocaust, *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("holy.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You mutter an incantation and begin tossing small fireballs at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fire1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You mutter an incantation, and * screams in pain as a wintry blast freezes*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ice3.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You mutter an incantation, and begin to toss ice shards at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ice1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You mutter some words, and cure your * wounds."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("heal self.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You play a tune on the organ. A section of the wall slides open, revealing a door."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("organ.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You point at * and tug on * life force!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("sickening touch.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You push the button on the computer, *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("button.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You raise your hands over your head and a funnel of fire streams towards*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fire2.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You raise your hands, and a bitter cold chills * to the bone!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ice2.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="You receive * Dungeon Points."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("dp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="You receive * Rat Tail."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Receive_Item.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="items"
+   match="You receive 1 * Emblem."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("emblem.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You release your energy and slash quickly at *!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("dispatch.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You send a small blast of darkness at *!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Darkside.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You shoot an arrow *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("FireM.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You slow back down."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Hasteoff.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You smash your fist into * in retaliation."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("Retaliation.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You stab * with a mystical strike!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("minus strike.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You steal * from *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("steal.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You summon up an arctic storm, causing large boulders of ice to crash to the*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("ice4.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You throw a * Scroll into the air.  It disintegrates and fills the area with *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("swish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You throw a Fuma Shuriken at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shurikenthrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You throw a Kunai at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("kunaithrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You throw a Pinwheel at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("pinwheel.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ninja"
+   match="You throw a Shuriken at *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("shurikenthrow.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You wake up refreshed after a full night of rest."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("allfull.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You wave your hands in a mystical pattern causing a pillar of fire to erupt*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("fire3.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You wave your hands in the air and turn yourself invisible*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("invis.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="You withdraw * coins."
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("withdraw.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="[Mission] *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("mission.ogg") Execute("history_add mission=%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="auction"
+   match="[PlayerAuction] Going once to * for * gold!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("auction bell1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="auction"
+   match="[PlayerAuction] Going twice to * for * gold!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("auction bell2.ogg")</send>
+  </trigger>
+</triggers>
+</muclient>

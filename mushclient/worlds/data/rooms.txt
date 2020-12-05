@@ -1,0 +1,390 @@
+The Center of Elsendor
+east, newbie, north, south, west
+elsendor
+Elsendor - On the Eastern Road
+east, north, south, west
+elsendor
+Elsendor - The Inn of Eternal Life
+down, south
+elsendor
+Elsendor's Item Shop
+north, up
+elsendor
+Elsendor - Portal to 'Secret of Mana'
+north, som, south, west
+elsendor
+Elsendor - Portal to 'Final Fantasy 5'
+east, ff5, north, west
+elsendor
+Elsendor Synthesis Shop
+west
+elsendor
+An Abandoned Laboratory
+north
+elsendor
+Elsendor - Outside of the Militia Headquarters
+east, north, south, west
+elsendor
+Elsendor - City Park
+east, ff7, north, south, west
+elsendor
+Elsendor - A Road Along the Cliffs of Elsendor
+east, west
+elsendor
+Elsendor - Skydock Plaza
+down, east, north, south
+elsendor
+Elsendor - Portal to 'Final Fantasy 6'
+east, ff6, north, south
+elsendor
+Elsendor - Small Landing
+down, up
+elsendor
+Elsendor - Base of the Cliff
+east, up
+elsendor
+The Menagerie
+west
+elsendor
+Elsendor - On the Western Edge of Town
+east, north, south, west
+elsendor
+Clan Centurio's Fame Shop
+east
+elsendor
+Elsendor - Northwest Marketplace
+east, north, south
+elsendor
+Elsendor's Ninja and Samurai Shop
+south
+elsendor
+Elsendor - On the Northern Road
+east, south, west
+elsendor
+Elsendor - Portal to 'Chrono Trigger'
+ct, east, south, west
+elsendor
+Elsendor - Center Road
+east, north, south, west
+elsendor
+Elsendor's Armor Shop
+east
+elsendor
+Elsendor's Weapon Shop
+down, west
+elsendor
+Newbie Equipment Room
+up
+elsendor
+Elsendor Mystical Toolshop
+south
+elsendor
+Elsendor - Northeast Plaza
+east, north, south, west
+elsendor
+Elsendor - A Path Along the Forest
+east, north, south, west
+elsendor
+The End of Time
+center, northeast, northwest, southeast
+end of time
+Platform next to the Epoch
+epoch, northwest
+end of time
+The End of Time
+northwest, southeast
+end of time
+Pillar to the Ice Age, 12000BC
+north, northeast, northwest, pillar, southeast, southwest, west
+end of time
+Pillar to Proto Dome, 2300AD
+east, north, northeast, northwest, pillar, south, southeast, southwest, west
+end of time
+Pillar to Mystic Mountain, 65,000,000BC
+east, north, northeast, northwest, pillar, southeast
+end of time
+Pillar to the Millennial Fair, 1000AD
+north, northeast, northwest, pillar
+end of time
+Pillar to Bangor Dome, 2300AD
+east, northeast, pillar, southeast
+end of time
+Pillar to Guardia Forest, 1000AD
+northwest, pillar, southwest, west
+end of time
+Pillar to the Impact Site, 65,000,000BC
+east, northeast, pillar, south, southeast, southwest
+end of time
+Pillar to Truce Canyon, 600AD
+pillar, south, southeast, southwest
+end of time
+Pillar to Medina Village, 1000AD
+northwest, pillar, south, southeast, southwest, west
+end of time
+Spekkio's Room
+southwest
+spekkio's dojo
+Mystic Mountain
+gate, south
+mystic mountain
+Near the top of Mystic Mountain
+east, north
+mystic mountain
+On Mystic Mountain
+south, west
+mystic mountain
+On Mystic Mountain
+north, south
+mystic mountain
+At the base of Mystic Mountain
+north, south
+mystic mountain
+Path to Ioka Village
+east, north
+ioka village
+Outskirts of the village
+north, south, west
+ioka village
+In Ioka Village
+east, hut, north, south, west
+ioka village
+In front of a hut
+east, hut
+ioka village
+In front of a hut
+hut, west
+ioka village
+In an Iokan Hut
+out
+ioka village
+Iokan Trading Hut
+out
+ioka village
+Ioka Campground
+north, south
+ioka village
+In front of the Hunting Grounds
+east, north, south, southwest, west
+ioka village
+Outside of a Forest Maze.
+north, south
+forest maze
+Forest Maze
+east, north
+forest maze
+Forest Maze
+down, west
+forest maze
+Forest Maze
+down, up
+forest maze
+Forest Maze
+east, up, west
+forest maze
+A small clearing
+east
+forest maze
+Forest Maze
+north, west
+forest maze
+Forest Maze
+east, south
+forest maze
+Forest Maze
+south, west
+forest maze
+Forest Maze
+north, south
+forest maze
+Forest Maze
+north, southeast
+forest maze
+Forest Maze
+east, northwest, southwest
+forest maze
+A small clearing
+west
+forest maze
+Forest Maze
+east, northeast
+forest maze
+Forest Maze
+northeast, west
+forest maze
+Forest Maze
+southwest, west
+forest maze
+Forest Maze
+north, northwest, south, west
+forest maze
+A small dirt clearing
+north
+forest maze
+Forest Maze
+east, northwest
+forest maze
+A small clearing
+south
+forest maze
+Forest Maze
+northwest, southeast
+forest maze
+Forest Maze
+southeast, west
+forest maze
+Forest Maze
+east, southeast
+forest maze
+Forest Maze
+east, northwest, west
+forest maze
+A small creek
+west
+forest maze
+A Massive Glade within the Forest Maze
+cave, north
+forest maze
+By the fair entrance
+fair, west
+truce village 1000ad
+A bend in the path of dirt
+east, south
+truce village 1000ad
+The center of Truce village
+east, house, north, south, west
+truce village 1000ad
+By a row of houses
+east, house
+truce village 1000ad
+A small house
+out
+truce village 1000ad
+A house in Truce Village
+out
+truce village 1000ad
+Inside a house
+out, up
+truce village 1000ad
+A bedroom in the house
+down
+truce village 1000ad
+By a large house
+house, west
+truce village 1000ad
+The southern part of town
+east, inn, north, west
+truce village 1000ad
+On a pier
+ferry, hut, west
+truce village 1000ad
+Ferry booking office
+out
+truce village 1000ad
+An Inn in Truce
+out
+truce village 1000ad
+A general store
+out
+truce village 1000ad
+Entrance to the Millennia Fair
+north, out
+millennial fair
+Race Track
+east, north, south, west
+millennial fair
+Race Track
+east, northwest
+millennial fair
+Race Track
+east, northeast, southeast, west
+millennial fair
+Millennia Fair
+east
+millennial fair
+Race Track
+east, southwest
+millennial fair
+Millennia Fair Equipment Shops
+east, west
+millennial fair
+Fountain
+east, north, south, west
+millennial fair
+Race Track
+southeast, west
+millennial fair
+Race Track
+east, northwest, southwest, west
+millennial fair
+Race Track
+northeast, west
+millennial fair
+Melchior's Arms Store
+east, west
+millennial fair
+A very spooky path
+north, west
+millennial fair
+A very spooky path
+south
+millennial fair
+Stairs
+north, south
+millennial fair
+Leene's Bell
+east, north, south, west
+millennial fair
+The stairs, east of Leene's Bell
+stairs, west
+millennial fair
+Staircase, west of Leene's Bell
+east, stairs
+millennial fair
+Candy Shoppe
+north, south
+millennial fair
+Before Lucca's Transporter
+north, northeast, northwest, south
+millennial fair
+Transporter
+southwest, transport, west
+millennial fair
+Transporter
+east, southeast, transport
+millennial fair
+Time Gate
+east, gate, south, west
+millennial fair
+Near Gato the singing Robot
+northwest, stairs
+millennial fair
+Road to Gato
+north, southeast
+millennial fair
+In front of a large house
+house, north
+lucca's house
+An utterly messy room
+north, out
+lucca's house
+A small corridor
+east, north, south, west
+lucca's house
+A messy bedroom
+east
+lucca's house
+In a kitchen
+south
+lucca's house
+A clean bedroom
+west
+lucca's house
+A shop in Truce
+east, shop, south
+truce village 1000ad
+Tantalus Hideout
+west
+elsendor
+Elsendor's Magical Forge
+east
+elsendor

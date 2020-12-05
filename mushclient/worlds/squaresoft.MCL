@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Sunday, October 18, 2020, 11:09 AM -->
+<!-- MuClient version 5.01 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+<world
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+
+   auto_say_override_prefix="-"
+   auto_say_string="say "
+   chat_name="Name-not-set"
+   command_stack_character=";"
+   id="38248c7e53d78fac3fe48c2d"
+   input_font_name="Fixedsys"
+   mapping_failure="Alas, you cannot go that way."
+   name="squaresoft"
+   new_activity_sound="(No sound)"
+   output_font_name="FixedSys"
+   proxy_server="uossmud.sanwich.net"
+   script_editor="notepad"
+   script_editor_argument="%file"
+   script_filename="D:\Documents\SquareSoft\worlds\uosssound.lua"
+   script_language="Lua"
+   script_prefix="$"
+   site="uossmud.sandwich.net"
+   spam_message="look"
+   speed_walk_prefix="#"
+   terminal_identification="mushclient"
+
+   arrows_change_history="y"
+   arrow_recalls_partial="y"
+   auto_pause="y"
+   auto_resize_minimum_lines="1"
+   auto_resize_maximum_lines="20"
+   auto_wrap_window_width="y"
+   chat_foreground_colour="red"
+   chat_background_colour="black"
+   chat_port="4050"
+   confirm_on_paste="y"
+   confirm_on_send="y"
+   convert_ga_to_newline="y"
+   default_trigger_sequence="100"
+   default_alias_sequence="100"
+   detect_pueblo="y"
+   echo_colour="9"
+   echo_hyperlink_in_output_window="y"
+   edit_script_with_notepad="y"
+   enable_aliases="y"
+   enable_beeps="y"
+   enable_command_stack="y"
+   enable_scripts="y"
+   enable_speed_walk="y"
+   enable_timers="y"
+   enable_triggers="y"
+   enable_trigger_sounds="y"
+   history_lines="1000"
+   hyperlink_adds_to_command_history="y"
+   hyperlink_colour="#0080FF"
+   input_background_colour="white"
+   input_font_height="9"
+   input_font_weight="400"
+   input_text_colour="black"
+   keypad_enable="y"
+   log_input="y"
+   log_output="y"
+   max_output_lines="5000"
+   mud_can_change_link_colour="y"
+   mud_can_change_options="y"
+   note_text_colour="#040000"
+   output_font_height="9"
+   output_font_weight="400"
+   paste_delay_per_lines="1"
+   pixel_offset="1"
+   port="9000"
+   proxy_port="9000"
+   script_errors_to_output_window="y"
+   send_file_delay_per_lines="1"
+   send_mxp_afk_response="y"
+   show_connect_disconnect="y"
+   show_italic="y"
+   show_underline="y"
+   spam_line_count="20"
+   tab_completion_lines="200"
+   timestamp_input_text_colour="maroon"
+   timestamp_notes_text_colour="blue"
+   timestamp_output_text_colour="white"
+   timestamp_input_back_colour="black"
+   timestamp_notes_back_colour="black"
+   timestamp_output_back_colour="black"
+   tool_tip_visible_time="5000"
+   tool_tip_start_time="400"
+   underline_hyperlinks="y"
+   unpause_on_send="y"
+   use_custom_link_colour="y"
+   use_default_input_font="y"
+   use_default_output_font="y"
+   warn_if_scripting_inactive="y"
+   wrap="y"
+   wrap_column="189"
+   write_world_name_to_log="y"
+   > <!-- end of general world attributes -->
+
+</world>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)$"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-(.*?)$"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^(.*?)\=\=\=\=\=\=\=\=\=\=\=(.*?)\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=(.*?)$"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^(\w+.+?) \[exits\: (.+)\]$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>room_name="%1"
+room_exits="%2"
+priorarea=currentarea
+
+for r=1,#rooms do
+if rooms[r].name==room_name and compareTables(stringToTable(room_exits), stringToTable(rooms[r].exits)) then
+setarea(rooms[r].area, true)
+end
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^(\w+.+?) has killed (\w+)\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/random death.ogg")
+Execute("history_add All=%1 has killed %2!")
+Execute("history_add Death=%1 has killed %2!")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^&lt;Clan&gt; &lt;\w+&gt;.+$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("channels/clantell.ogg")
+Execute("history_add All=%0")
+Execute("history_add Clan=%0")
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^&gt; $"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^I don\'t know the word\: .+\.$"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/command wrong.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^It doesn\'t appear possible to go that way\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("movement/collision.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^The prone\, lifeless body of \w+\, the \w+ .+$"
+   regexp="y"
+   sequence="100"
+  >
+  <send>playsound("misc/corpse.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You are now a (.+)\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("jobchange/%1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You buy .+ for .+ gold coins\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/buysell.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You grip a warp stone and disappear\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/warp.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You have left The UnOfficial SquareSoft MUD\.$"
+   send_to="12"
+   sequence="100"
+  >
+  <send>stopsound()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You receive \d+ XP\, \d+ AP\, and \d+ gold\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/cap.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You remove your .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/unwield.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You wear .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/you wear.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You wield .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/wield.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\[(\D+)\] (.+)$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if "%1" == "announce" then
+  temp, temp2 = string.match("%2", "(has killed) (.*)")
+  mudleave, mudleave2 = string.match("%2", "has left the MUD.")
+  mudenter = string.match("%2", "enters the MUD.")
+levelup = string.match("%2", "has achieved level")
+  if temp == "has killed" then
+    playsound("misc/no xp death.ogg") ExecuteNoStack("history_add Death=%0") ExecuteNoStack("history_add All=%0")
+  elseif mudleave == "has left the MUD." then
+    playsound("misc/leave.ogg") ExecuteNoStack("history_add Announce=%0") ExecuteNoStack("history_add All=%0")
+elseif mudenter == "enters the MUD." then
+playsound("misc/enter.ogg") ExecuteNoStack("history_add Announce=%0") ExecuteNoStack("history_add All=%0")
+elseif levelup == "has achieved level" then
+    playsound("misc/achieve.ogg")
+ExecuteNoStack("history_add Announce=%0")
+ExecuteNoStack("history_add All=%0")
+
+else
+    playsound("channels/announce.ogg") ExecuteNoStack("history_add Announce=%0") ExecuteNoStack("history_add All=%0")
+  end
+
+else
+channelsound("%1")
+ExecuteNoStack("history_add channels=%0")
+ExecuteNoStack("history_add All=%0")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+ has ascended to legendhood\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/fanfare_02.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^\w+ suddenly appears in the room\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/someone recalls.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+.+? is DEAD\!$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/death1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+.+?\: You remove your .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/unwield.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+.+?\: You unwield .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/unwield.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+.+?\: You wear .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/you wear.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^\w+.+?\: You wield .+\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>playsound("misc/wield.ogg")</send>
+  </trigger>
+</triggers>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+  <alias
+   match="^ct (.+)$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>clan tell %1</send>
+  </alias>
+  <alias
+   match="^pt (.+)$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>partytell %1</send>
+  </alias>
+  <alias
+   match="addroom"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("addroom "..currentarea)</send>
+  </alias>
+  <alias
+   match="addroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+print("This room is already in the list of rooms. If you are attempting to change it's area use changeroom.")
+return
+end
+end
+
+if "%1"=="" then
+print("Area name must contain a value")
+else
+rooms[#rooms+1]={name=room_name,exits=room_exits,area="%1"}
+print(rooms[#rooms].name.." added to rooms list, with area "..rooms[#rooms].area..".")
+currentarea=rooms[#rooms].area
+
+saverooms()
+setarea(currentarea)
+end
+</send>
+  </alias>
+  <alias
+   match="changeroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+if "%1"=="" then
+print("Area must contain a string value.")
+else
+rooms[r].area="%1"
+print(rooms[r].name.."'s area changed to "..rooms[r].area..".")
+saverooms()
+return
+end
+end
+end</send>
+  </alias>
+  <alias
+   match="config"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>print("config:")
+for c=1,#cl do
+print(cl[c].name.." "..cl[c].value..": "..cl[c].desc)
+end
+</send>
+  </alias>
+  <alias
+   match="config * *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>cname="%1"
+cvalue="%2"
+gv=0
+for c=1,#cl do
+if cl[c].name==cname then
+if cl[c].value==cvalue then
+print(cl[c].name.." is already set to "..cl[c].value..".")
+return
+end
+for v=1,#cl[c].values do
+if cl[c].values[v]==cvalue then
+print(cl[c].name.." set to "..cvalue..".")
+cl[c].value=cvalue
+gv=1
+end
+end
+if gv==0 then
+print("no values for "..cl[c].name.." matching "..cvalue..".")
+end
+end
+end
+
+if getconfig("areamusic")=="off" then
+ppi.stop(areamusic)
+end
+
+saveconfig()</send>
+  </alias>
+  <alias
+   match="loadrooms"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>loadrooms()</send>
+  </alias>
+  <alias
+   match="mr *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for i=1,tonumber("%1") do
+rooms[#rooms+1]={name="fjowe",exits="moo",area="fjiweriowhe"}
+end</send>
+  </alias>
+  <alias
+   match="removeroom"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if rooms[r].name==room_name and rooms[r].exits==room_exits then
+print(room_name.." removed from rooms list.")
+
+table.remove(rooms,r)
+
+return
+end
+end
+print("This room is not in the list of rooms.")
+</send>
+  </alias>
+  <alias
+   match="removeroom *"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>for r=1,#rooms do
+if match_room(room_name, room_exits, r) then
+print(room_name.." removed from rooms list.")
+table.remove(rooms,r)
+
+return
+end
+end
+print("This room is not in the list of rooms.")</send>
+  </alias>
+  <alias
+   match="saverooms"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>saverooms()</send>
+  </alias>
+  <alias
+   match="savesettings"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>saverooms()
+saveconfig()</send>
+  </alias>
+  <alias
+   match="voldown"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setvol(2)
+if areamusic~=0 then
+ppi.setVol(musicvolume,areamusic)
+end
+saveconfig()</send>
+  </alias>
+  <alias
+   match="volup"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>setvol(1)
+if ppi.isPlaying(areamusic) then
+ppi.setVol(musicvolume,areamusic)
+end
+saveconfig()</send>
+  </alias>
+  <alias
+   match="vt"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>vt()</send>
+  </alias>
+</aliases>
+
+<!-- timers -->
+
+<timers
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+  <timer enabled="y" second="2.00" offset_second="0.00"    send_to="12"
+>
+  <send>if slashmode == true and autoslash == true then
+Send("use swdtech slash at marmablue")
+end
+if gravitybomb == true then
+Execute("gravitybomb")
+end</send>
+
+  </timer>
+  <timer enabled="y" second="6.00" offset_second="0.00"    send_to="12"
+>
+  <send>if healmode == true then
+DoAfter(math.random(2, 3), "partylist")
+end</send>
+
+  </timer>
+  <timer enabled="y" second="35.00" offset_second="0.00"    send_to="12"
+omit_from_output="y" >
+  <send>if keepchain == true then
+Execute("tonic")
+end</send>
+
+  </timer>
+  <timer enabled="y" minute="5" second="0.00" offset_second="0.00"    send_to="12"
+>
+  <send>if autoslash == true and slashmode ~= true then
+Send("use swdtech slash at marmablue")
+end</send>
+
+  </timer>
+  <timer enabled="y" second="30.00" offset_second="0.00"    send_to="12"
+>
+  <send>if kmode == true and tekforce == false then
+Send("use mtek tekshield")
+end</send>
+
+  </timer>
+</timers>
+
+<!-- macros -->
+
+<macros
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+
+  <macro name="up" type="send_now" >
+  <send>up</send>
+
+  </macro>
+
+  <macro name="down" type="send_now" >
+  <send>down</send>
+
+  </macro>
+
+  <macro name="north" type="send_now" >
+  <send>north</send>
+
+  </macro>
+
+  <macro name="south" type="send_now" >
+  <send>south</send>
+
+  </macro>
+
+  <macro name="east" type="send_now" >
+  <send>east</send>
+
+  </macro>
+
+  <macro name="west" type="send_now" >
+  <send>west</send>
+
+  </macro>
+
+  <macro name="examine" type="replace" >
+  <send>examine </send>
+
+  </macro>
+
+  <macro name="look" type="replace" >
+  <send>look </send>
+
+  </macro>
+
+  <macro name="page" type="replace" >
+  <send>page </send>
+
+  </macro>
+
+  <macro name="say" type="replace" >
+  <send>say </send>
+
+  </macro>
+
+  <macro name="whisper" type="replace" >
+  <send>whisper </send>
+
+  </macro>
+
+  <macro name="doing" type="send_now" >
+  <send>DOING</send>
+
+  </macro>
+
+  <macro name="who" type="send_now" >
+  <send>WHO</send>
+
+  </macro>
+
+  <macro name="drop" type="replace" >
+  <send>drop </send>
+
+  </macro>
+
+  <macro name="take" type="replace" >
+  <send>take </send>
+
+  </macro>
+
+  <macro name="F2" type="send_now" >
+  <send>flee</send>
+
+  </macro>
+
+  <macro name="logout" type="send_now" >
+  <send>LOGOUT</send>
+
+  </macro>
+
+  <macro name="quit" type="send_now" >
+  <send>QUIT</send>
+
+  </macro>
+</macros>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+  <variable name="PPIparams_1">n:1|n:2|n:2|s:D:\\Documents\\SquareSoft\\worlds\\sounds/misc/unwield.ogg|n:3|n:0|n:4|n:0|n:5|n:25</variable>
+</variables>
+
+<!-- colours -->
+
+<colours
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+
+<ansi>
+
+ <normal>
+   <colour seq="1" rgb="black" />
+   <colour seq="2" rgb="maroon" />
+   <colour seq="3" rgb="green" />
+   <colour seq="4" rgb="olive" />
+   <colour seq="5" rgb="navy" />
+   <colour seq="6" rgb="purple" />
+   <colour seq="7" rgb="teal" />
+   <colour seq="8" rgb="silver" />
+
+ </normal>
+
+ <bold>
+   <colour seq="1" rgb="gray" />
+   <colour seq="2" rgb="red" />
+   <colour seq="3" rgb="lime" />
+   <colour seq="4" rgb="yellow" />
+   <colour seq="5" rgb="blue" />
+   <colour seq="6" rgb="magenta" />
+   <colour seq="7" rgb="cyan" />
+   <colour seq="8" rgb="white" />
+
+ </bold>
+
+</ansi>
+
+<custom>
+  <colour seq="1" name="Custom1" text="#FF8080" back="black" />
+  <colour seq="2" name="Custom2" text="#FFFF80" back="black" />
+  <colour seq="3" name="Custom3" text="#80FF80" back="black" />
+  <colour seq="4" name="Custom4" text="#80FFFF" back="black" />
+  <colour seq="5" name="Custom5" text="#0080FF" back="black" />
+  <colour seq="6" name="Custom6" text="#FF80C0" back="black" />
+  <colour seq="7" name="Custom7" text="red" back="black" />
+  <colour seq="8" name="Custom8" text="#0080C0" back="black" />
+  <colour seq="9" name="Custom9" text="magenta" back="black" />
+  <colour seq="10" name="Custom10" text="#804040" back="black" />
+  <colour seq="11" name="Custom11" text="#FF8040" back="black" />
+  <colour seq="12" name="Custom12" text="teal" back="black" />
+  <colour seq="13" name="Custom13" text="#004080" back="black" />
+  <colour seq="14" name="Custom14" text="#FF0080" back="black" />
+  <colour seq="15" name="Custom15" text="green" back="black" />
+  <colour seq="16" name="Custom16" text="blue" back="black" />
+
+</custom>
+</colours>
+
+<!-- keypad -->
+
+<keypad
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+
+  <key name="0" >
+  <send>blessing</send>
+  </key>
+
+  <key name="1" >
+  <send>use magicsword dontact at mob</send>
+  </key>
+
+  <key name="2" >
+  <send>use mtek gravitybomb</send>
+  </key>
+
+  <key name="3" >
+  <send>use magicsword smite</send>
+  </key>
+
+  <key name="4" >
+  <send>use subdue katon at mob</send>
+  </key>
+
+  <key name="5" >
+  <send>use subdue shadowstrike at mob</send>
+  </key>
+
+  <key name="6" >
+  <send>use subdue hyoton at mob</send>
+  </key>
+
+  <key name="7" >
+  <send>use subdue huton at mob</send>
+  </key>
+
+  <key name="8" >
+  <send>use subdue darkseal</send>
+  </key>
+
+  <key name="9" >
+  </key>
+
+  <key name="." >
+  <send>curaja</send>
+  </key>
+
+  <key name="/" >
+  <send>inventory</send>
+  </key>
+
+  <key name="*" >
+  <send>score</send>
+  </key>
+
+  <key name="-" >
+  <send>up</send>
+  </key>
+
+  <key name="+" >
+  <send>down</send>
+  </key>
+
+  <key name="Ctrl+0" >
+  </key>
+
+  <key name="Ctrl+1" >
+  </key>
+
+  <key name="Ctrl+2" >
+  </key>
+
+  <key name="Ctrl+3" >
+  </key>
+
+  <key name="Ctrl+4" >
+  </key>
+
+  <key name="Ctrl+5" >
+  </key>
+
+  <key name="Ctrl+6" >
+  </key>
+
+  <key name="Ctrl+7" >
+  </key>
+
+  <key name="Ctrl+8" >
+  </key>
+
+  <key name="Ctrl+9" >
+  </key>
+
+  <key name="Ctrl+." >
+  </key>
+
+  <key name="Ctrl+/" >
+  </key>
+
+  <key name="Ctrl+*" >
+  </key>
+
+  <key name="Ctrl+-" >
+  </key>
+
+  <key name="Ctrl++" >
+  </key>
+</keypad>
+
+<!-- printing -->
+
+<printing
+   muclient_version="5.01"
+   world_file_version="15"
+   date_saved="2020-10-18 11:09:52"
+  >
+
+<ansi>
+
+ <normal>
+
+ </normal>
+
+ <bold>
+   <style seq="1" bold="y" />
+   <style seq="2" bold="y" />
+   <style seq="3" bold="y" />
+   <style seq="4" bold="y" />
+   <style seq="5" bold="y" />
+   <style seq="6" bold="y" />
+   <style seq="7" bold="y" />
+   <style seq="8" bold="y" />
+
+ </bold>
+
+</ansi>
+</printing>
+
+<!-- plugins -->
+<include name="MushReader.xml" plugin="y" />
+<include name="output_functions.xml" plugin="y" />
+<include name="direction_plugin.xml" plugin="y" />
+<include name="auto_retyping.xml" plugin="y" />
+<include name="CaptureMudOutput.xml" plugin="y" />
+<include name="channel_history.xml" plugin="y" />
+<include name="Omit_Blank_Lines.xml" plugin="y" />
+<include name="LuaAudio.xml" plugin="y" />
+<include name="PromptHelper.xml" plugin="y" />
+<include name="UossmudUtilities.xml" plugin="y" />
+<include name="leos_checker_v2.1.1.xml" plugin="y" />
+</muclient>
