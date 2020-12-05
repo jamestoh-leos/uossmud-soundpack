@@ -8,3 +8,5 @@ thingy 2
 other thingy
 more thingy
 Our aim: Make the soundpack great again!
+
+Added a creature folder for Monster abilities.
