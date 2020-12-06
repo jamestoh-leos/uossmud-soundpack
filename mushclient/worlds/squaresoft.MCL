@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on Sunday, October 18, 2020, 11:09 AM -->
+<!-- Saved on Sunday, December 06, 2020, 2:38 PM -->
 <!-- MuClient version 5.01 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -23,7 +23,7 @@
    proxy_server="uossmud.sanwich.net"
    script_editor="notepad"
    script_editor_argument="%file"
-   script_filename="D:\Documents\SquareSoft\worlds\uosssound.lua"
+   script_filename="D:\Programming\git\uossmud soundpack\mushclient\worlds\uosssound.lua"
    script_language="Lua"
    script_prefix="$"
    site="uossmud.sandwich.net"
@@ -111,7 +111,7 @@
 <triggers
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
   <trigger
    enabled="y"
@@ -139,6 +139,18 @@
    regexp="y"
    sequence="100"
   >
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^(You|\w+) (say|says)\, \'(.*?)\'$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("history_add All=%0")
+Execute("history_add say=%0")
+
+playsound("communication/say.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -413,7 +425,7 @@ end</send>
 <aliases
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
   <alias
    match="^ct (.+)$"
@@ -637,7 +649,7 @@ saveconfig()</send>
 <timers
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
   <timer enabled="y" second="2.00" offset_second="0.00"    send_to="12"
 >
@@ -684,7 +696,7 @@ end</send>
 <macros
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
 
   <macro name="up" type="send_now" >
@@ -783,9 +795,9 @@ end</send>
 <variables
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
-  <variable name="PPIparams_1">n:1|n:2|n:2|s:D:\\Documents\\SquareSoft\\worlds\\sounds/misc/unwield.ogg|n:3|n:0|n:4|n:0|n:5|n:25</variable>
+  <variable name="PPIparams_1">n:1|n:2|n:2|s:D:\\Programming\\git\\uossmud soundpack\\mushclient\\worlds\\sounds/misc/unwield.ogg|n:3|n:0|n:4|n:0|n:5|n:25</variable>
 </variables>
 
 <!-- colours -->
@@ -793,7 +805,7 @@ end</send>
 <colours
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
 
 <ansi>
@@ -850,7 +862,7 @@ end</send>
 <keypad
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
 
   <key name="0" >
@@ -963,7 +975,7 @@ end</send>
 <printing
    muclient_version="5.01"
    world_file_version="15"
-   date_saved="2020-10-18 11:09:52"
+   date_saved="2020-12-06 14:38:10"
   >
 
 <ansi>
