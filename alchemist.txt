@@ -1,1 +1,2 @@
+bug
 this is just a test file that i am using to test git. pay no mind
